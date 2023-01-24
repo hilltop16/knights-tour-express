@@ -32,19 +32,26 @@ Request:
 Response:
 { "status": "ok", "from": [ 0, 0 ], "to": [ 3, 5 ], "isLegal": false }
 */
-export async function legalMove(from, to) {
-  const response = await axios.post(
-    'http://knights-t.herokuapp.com/legalMove',
-    {
-      from,
-      to
-    },
-    {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-  )
+// export async function legalMove(from, to) {
+//   const response = await axios.post(
+//     'http://knights-t.herokuapp.com/legalMove',
+//     {
+//       from,
+//       to
+//     },
+//     {
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     }
+//   )
   
-  return response.data.isLegal
+//   return response.data.isLegal
+// }
+
+export function legalMove(from, to) {
+  const moveTo = to;
+  console.log('move to', moveTo);
+  
+  return 'test'
 }
