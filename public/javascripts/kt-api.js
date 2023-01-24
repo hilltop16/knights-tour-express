@@ -54,8 +54,6 @@ export function legalMove(from, to) {
   console.log('move to', to);
   const [x1, y1] = from;
   const [x2, y2] = to;
-  console.log('x1-x2:', x1-x2)
-  console.log('y1-y2:', y1-y2)
   // two situations are valid: 
   // |X1 - X2| = 1 AND |Y1-Y2| = 2
   // or
