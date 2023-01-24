@@ -17,3 +17,8 @@ td {
   border: 40px solid red;
   box-sizing: border-box;
 }
+
+.knight::after {
+  content: 'K';
+  color: orange;
+}
