@@ -1,6 +1,7 @@
 import { legalMove } from './kt-api.js'
 
 const grids = document.querySelectorAll('td');
+let knightElement = document.getElementsByClassName('knight');
 
 export const onContentLoaded = async () => {
   const initialMove = [0, 0]
@@ -14,13 +15,20 @@ export const onContentLoaded = async () => {
 
   grids.forEach(grid => {
       grid.addEventListener('click', async (event) => {
-        console.log('event', event)
-        const moveY = event.target.className.split(' ')[0];
-        const moveX = event.target.parentElement.className;
+        console.log('click event', event)
+        console.log('knight ele: ', knightElement);
+        let knightPosY = Number(knightElement[0].className.split(' ')[0]);
+        let knightPosX = Number(knightElement[0].parentElement.className);
+        console.log('knight position X: ', knightPosX);
+        console.log('knight position Y: ', knightPosY);
+        const moveY = Number(event.target.className.split(' ')[0]);
+        const moveX = Number(event.target.parentElement.className);
         // const isValid = await legalMove(currPos, [moveX, moveY]);
         const isValid = legalMove(currPos, [moveX, moveY])
         console.log('move valid? ', isValid);
-        if (isValid) currPos = [moveX, moveY];
+        if (isValid) {
+          currPos = [moveX, moveY];
+        }
       })
   });
 }
