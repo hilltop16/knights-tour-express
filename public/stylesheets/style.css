@@ -13,6 +13,16 @@ td {
   background-color: black;
 }
 
+.bishop {
+  border: 40px solid green;
+  box-sizing: border-box;
+}
+
+.bishop::after {
+  content: 'B';
+  color: orange;
+}
+
 .knight {
   border: 40px solid red;
   box-sizing: border-box;

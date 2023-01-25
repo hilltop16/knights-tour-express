@@ -49,9 +49,33 @@ Response:
 //   return response.data.isLegal
 // }
 
-export function legalMove(from, to) {
+export function isLegal(from, to, piece) {
+  return validationMap[piece](from, to);
+}
+
+const validationMap = {
+  'knight': validateKnight,
+  'bishop': validateBishop
+}
+
+function validateBishop(from, to) {
   console.log('from: ', from);
   console.log('move to', to);
+  const [x1, y1] = from;
+  const [x2, y2] = to;
+  // 3 situations:
+  // cannot be horizontal or vertical
+  // x1-x2 = y1-y2
+  if (x1===x2 || y1===y2) {
+    return false;
+  }
+  else if (Math.abs(x1-x2) === Math.abs(y1-y2)) {
+    return true;
+  }
+  return false;
+}
+
+function validateKnight(from, to) {
   const [x1, y1] = from;
   const [x2, y2] = to;
   // two situations are valid: 
